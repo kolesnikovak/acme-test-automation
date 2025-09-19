@@ -1,5 +1,4 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { isVoidExpression } from 'typescript'
 
 export class HomePage {
 
@@ -14,8 +13,8 @@ export class HomePage {
         this.addAccountButton = page.locator('Add Account')
     }
 
-    validateTitleMessage(expectedTitleMessage: string): void {
-        expect(this.timeLineTitle).toHaveText(expectedTitleMessage)
+    async validateTitleMessage(expectedTitleMessage: string): Promise<void> {
+        await expect(this.timeLineTitle).toHaveText(expectedTitleMessage)
     }
 
     async clickAddAccountButton(): Promise<void> {
